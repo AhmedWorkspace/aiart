@@ -1,0 +1,40 @@
+.container {
+  max-width: 60%;
+  padding: 10px;
+  background: #11272c;
+}
+
+.header {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
+.header p {
+  color: orange;
+  margin-left: 10px;
+}
+.headerimg {
+
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+.body {
+
+  color: white;
+  padding: 10px;
+  height: 60px;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+.footer .fimg {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
