@@ -7,7 +7,7 @@ import { GrGallery } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import useFetchImg from "../../hooks/fetchImg";
 import { useEffect, useState,useRef } from "react";
-import DisplayImg from "./DisplayImg";
+
 import { useHistory } from "react-router-dom";
 const HomePage = () => {
   const [allImg, getALLImg, isLoading] = useFetchImg();
@@ -53,7 +53,13 @@ const HomePage = () => {
 
 
 
+const onhover = (e)=>{
+  e.currentTarget.src = require('../../assets/skull.jpg')
+}
 
+const onhoverout = (url)=>(e)=>{
+  e.currentTarget.src = url
+}
 
   allImg.forEach((img, i) => {
     const length = allImg.length;
@@ -152,9 +158,11 @@ const HomePage = () => {
 
             {col1_images.map((img ,i) => (
               <div key={img.imgName} className={styles.img}>
-                <img src={img.imgUrl} alt={img.imgName}  onClick={onclickpageItem}/>
-                 {/* <div > <DisplayImg/></div> */}
-
+                <img src={img.imgUrl} alt={img.imgName}  onMouseOver={onhover}
+                onMouseOut={onhoverout(img.imgUrl)}
+                />
+                 
+                {img.imgUrl.includes("https://firebasestorage.googleapis.com/") && <img className={styles.verifyy_icon} src={require('../../assets/correct.png')} alt="" style={{height:"30px",width:"30px"}}/>}
                 <Link className={styles.save_icon} to={"/login"}>
                   <svg
                     width="50"
@@ -230,7 +238,12 @@ const HomePage = () => {
           <div className={styles.col_img}>
             {col2_images.map((img) => (
               <div key={img.imgName} className={styles.img}>
-                <img src={img.imgUrl} alt={img.imgName} />
+                
+                <img src={img.imgUrl} alt={img.imgName}  onMouseOver={onhover}
+                onMouseOut={onhoverout(img.imgUrl)}
+                />
+                 
+                {img.imgUrl.includes("https://firebasestorage.googleapis.com/") && <img className={styles.verifyy_icon} src={require('../../assets/correct.png')} alt="" style={{height:"30px",width:"30px"}}/>}
                 <Link className={styles.save_icon} to={"/login"}>
                   <svg
                     width="50"
@@ -306,7 +319,11 @@ const HomePage = () => {
           <div className={styles.col_img}>
             {col3_images.map((img) => (
               <div key={img.imgName} className={styles.img}>
-                <img src={img.imgUrl} alt={img.imgName} />
+                <img src={img.imgUrl} alt={img.imgName}  onMouseOver={onhover}
+                onMouseOut={onhoverout(img.imgUrl)}
+                />
+                 
+                {img.imgUrl.includes("https://firebasestorage.googleapis.com/") && <img className={styles.verifyy_icon} src={require('../../assets/correct.png')} alt="" style={{height:"30px",width:"30px"}}/>}
                 <Link className={styles.save_icon} to={"/login"}>
                   <svg
                     width="50"
